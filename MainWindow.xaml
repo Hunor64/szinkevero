@@ -1,0 +1,44 @@
+﻿<Window x:Class="OnlineOra.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineOra"
+        mc:Ignorable="d"
+        Title="Color Picker" Height="450" Width="600" MinHeight="450" MinWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="50" MaxHeight="60"/>
+            <RowDefinition Height="*" MinHeight="50" MaxHeight="60"/>
+            <RowDefinition Height="*" MinHeight="50" MaxHeight="60"/>
+            <RowDefinition Height="*" MinHeight="50" MaxHeight="60"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <TextBox VerticalAlignment="Center" TextAlignment="Center" x:Name="boxRed" Width="90" Height="40" FontSize="20" TextChanged="changeColorBox" Text="{Binding ElementName=sliRed, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=N0}"/>
+        <TextBox VerticalAlignment="Center" TextAlignment="Center" x:Name="boxGreen" Grid.Row="1" Width="90" Height="40" FontSize="20" TextChanged="changeColorBox" Text="{Binding ElementName=sliGreen, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=N0}"/>
+        <TextBox VerticalAlignment="Center" TextAlignment="Center" x:Name="boxBlue" Grid.Row="2" Width="90" Height="40" FontSize="20" TextChanged="changeColorBox" Text="{Binding ElementName=sliBlue, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat=N0}"/>
+        <Label Background="White" Grid.Column="2" Content="Red" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Background="White" Grid.Column="2" Grid.Row="1" Content="Green" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Label Background="White" Grid.Column="2" Grid.Row="2" Content="Blue" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Slider x:Name="sliRed" Grid.Column="1" Minimum="0" Maximum="255" VerticalAlignment="Center" ValueChanged="changeColorSlider"/>
+        <Slider x:Name="sliGreen" Grid.Column="1" Grid.Row="1" Minimum="0" Maximum="255" VerticalAlignment="Center" ValueChanged="changeColorSlider"/>
+        <Slider x:Name="sliBlue" Grid.Column="1" Grid.Row="2" Minimum="0" Maximum="255" VerticalAlignment="Center" ValueChanged="changeColorSlider"/>
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="rogzit" Grid.Column="0" Content="Rögzít" Click="Rogzit_Click"/>
+            <Button x:Name="torol" Grid.Column="1" Content="Töröl" Click="Torol_Click"/>
+            <Button x:Name="urit" Grid.Column="2" Content="Ürítés" Click="Urit_Click"/>
+        </Grid>
+        <ListBox x:Name="szinekbox" Margin="5" Background="LightGoldenrodYellow" Grid.Row="4" Grid.ColumnSpan="3" SelectionChanged="setSzin"/>
+    </Grid>
+</Window>
